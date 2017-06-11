@@ -1,0 +1,91 @@
+QPushButton#pushButton_4{
+background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));
+border: 1px solid rgb(124, 124, 124);
+border-radius:15px;
+padding:5px;
+color:#fff
+}
+QPushButton#pushButton_4:hover{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(181, 225, 250, 255), stop:0.5 rgba(222, 242, 251, 255));
+  border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #3C80B1;
+}
+QPushButton#pushButton_4:pressed{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(134, 198, 233, 255), stop:0.5 rgba(206, 234, 248, 255));
+    border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #5F92B2;
+}
+
+
+
+QPushButton#pushButton_2{
+background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));
+border: 1px solid rgb(124, 124, 124);
+border-radius:15px;
+padding:5px;
+color:#fff
+}
+QPushButton#pushButton_2:hover{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(181, 225, 250, 255), stop:0.5 rgba(222, 242, 251, 255));
+  border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #3C80B1;
+}
+QPushButton#pushButton_2:pressed{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(134, 198, 233, 255), stop:0.5 rgba(206, 234, 248, 255));
+    border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #5F92B2;
+}
+
+QPushButton#pushButton_3{
+background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));
+border: 1px solid rgb(124, 124, 124);
+border-radius:15px;
+padding:5px;
+color:#fff
+}
+
+QPushButton#pushButton_3:hover{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(181, 225, 250, 255), stop:0.5 rgba(222, 242, 251, 255));
+  border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #3C80B1;
+}
+
+QPushButton#pushButton_3:pressed{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(134, 198, 233, 255), stop:0.5 rgba(206, 234, 248, 255));
+    border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #5F92B2;
+}
+
+QPushButton#pushButton{
+background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));
+border: 1px solid rgb(124, 124, 124);
+border-radius:15px;
+padding:5px;
+color:#fff
+}
+QPushButton#pushButton:hover{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(181, 225, 250, 255), stop:0.5 rgba(222, 242, 251, 255));
+  border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #3C80B1;
+}
+QPushButton#pushButton:pressed{
+  background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(134, 198, 233, 255), stop:0.5 rgba(206, 234, 248, 255));
+    border-radius:15px;
+padding:5px;
+color:#fff
+  border: 1px solid #5F92B2;
+}

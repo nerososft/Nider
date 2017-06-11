@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewProjectWindow</class>
+ <widget class="QDialog" name="NewProjectWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>490</width>
+    <height>367</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>新建项目</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background:rgb(45,44,48);
+color:rgb(255,255,255);</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,6">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="styleSheet">
+          <string notr="true">QTabBar::tab
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QTabBar::tab:selected
+{
+background:rgb(35, 35, 38);
+}
+QTabBar::tab:!selected
+{
+background:rgb(51, 51, 51);
+}
+QTabBar::tab:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab">
+          <attribute name="title">
+           <string>本地模版</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QTreeView" name="treeView_model">
+             <property name="focusPolicy">
+              <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="indentation">
+              <number>0</number>
+             </property>
+             <property name="headerHidden">
+              <bool>true</bool>
+             </property>
+             <attribute name="headerVisible">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="headerCascadingSectionResizes">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="headerHighlightSections">
+              <bool>true</bool>
+             </attribute>
+             <attribute name="headerShowSortIndicator" stdset="0">
+              <bool>true</bool>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_2">
+          <attribute name="title">
+           <string>在线模版</string>
+          </attribute>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="6,4">
+       <item>
+        <widget class="QGroupBox" name="project_define">
+         <property name="title">
+          <string>定义</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QTextBrowser" name="model_desc">
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>项目</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>项目:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_ProjectName"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>路径：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_path">
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QPushButton:selected
+{
+background:rgb(35, 35, 38);
+}
+QPushButton:!selected
+{
+background:rgb(51, 51, 51);
+}
+QPushButton:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+              </property>
+              <property name="text">
+               <string>浏览</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QPushButton:selected
+{
+background:rgb(35, 35, 38);
+}
+QPushButton:!selected
+{
+background:rgb(51, 51, 51);
+}
+QPushButton:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+              </property>
+              <property name="text">
+               <string>取消</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="styleSheet">
+               <string notr="true">QPushButton
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QPushButton:selected
+{
+background:rgb(35, 35, 38);
+}
+QPushButton:!selected
+{
+background:rgb(51, 51, 51);
+}
+QPushButton:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+              </property>
+              <property name="text">
+               <string>创建</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

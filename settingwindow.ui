@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingWindow</class>
+ <widget class="QDialog" name="SettingWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>604</width>
+    <height>414</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background:rgb(45, 44, 48);
+color:rgb(255, 255, 255);
+margin:0;
+padding:0;
+Spacing:0;</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3" stretch="10,1">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="lineEdit"/>
+       </item>
+       <item>
+        <widget class="QListView" name="listView"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>设置</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="setting_apply">
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QPushButton:selected
+{
+background:rgb(35, 35, 38);
+}
+QPushButton:!selected
+{
+background:rgb(51, 51, 51);
+}
+QPushButton:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+       </property>
+       <property name="text">
+        <string>Apply</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setting_ok">
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QPushButton:selected
+{
+background:rgb(35, 35, 38);
+}
+QPushButton:!selected
+{
+background:rgb(51, 51, 51);
+}
+QPushButton:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+       </property>
+       <property name="text">
+        <string>OK</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="setting_cancel">
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+font:13px;
+color:white; 
+border:none;
+background:rgb(51, 51, 51);
+height:20px;
+width:75px;
+}
+QPushButton:selected
+{
+background:rgb(35, 35, 38);
+}
+QPushButton:!selected
+{
+background:rgb(51, 51, 51);
+}
+QPushButton:hover:!selected
+{
+background:rgb(35, 35, 38);
+}</string>
+       </property>
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,31 @@
+[{
+        "model_id": "1",
+        "icon": ":/icon/build.png",
+        "model": "C++ 控制台应用",
+        "desc":"基本C++控制台应用"
+},{
+        "model_id": "2",
+        "icon": ":/icon/build.png",
+        "model": "C HelloWorld",
+        "desc":"将创建C语言helloworld入门应用"
+ },{
+        "model_id": "3",
+        "icon": ":/icon/build.png",
+        "model": "C++ HelloWorld",
+        "desc":"将创建C++语言helloworld类及入门应用"
+},{
+        "model_id": "4",
+        "icon": ":/icon/build.png",
+        "model": "OpenGL",
+        "desc":"将创建C++语言OpenGL 应用"
+},{
+        "model_id": "5",
+        "icon": ":/icon/build.png",
+        "model": "SDL2 跨平台应用",
+        "desc":"将创建C++语言SDL2应用"
+},{
+        "model_id": "6",
+        "icon": ":/icon/build.png",
+        "model": "OpenCV",
+        "desc":"将创建C++语言OpenCV应用"
+}]
