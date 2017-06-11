@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>styles/base.qss</file>
         <file>icon/preview.png</file>
-        <file>icon/main.bmp</file>
         <file>icon/new_file.png</file>
         <file>icon/open_file.png</file>
         <file>icon/save_file.png</file>

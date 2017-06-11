@@ -15,6 +15,7 @@
 #include "jsonhelper.h"
 #include "project.h"
 #include <QSpacerItem>
+#include <QSignalMapper>
 
  QLabel *q;
 void MainWindow::initUi(){
@@ -53,15 +54,27 @@ void MainWindow::setupEditor()
     QFont font;
     font.setFamily("Courier");
     font.setFixedPitch(true);
-    font.setPointSize(10);
+    font.setPointSize(20);
 
     ui->textEdit->setFont(font);
 
    highlighter = new Highlighter(ui->textEdit->document());
 
-    QFile file("mainwindow.h");
-    if (file.open(QFile::ReadOnly | QFile::Text))
-        ui->textEdit->setPlainText(file.readAll());
+   for(int i = 0;i<9;i++){
+       QPushButton* editorTopB = new QPushButton("");
+       editorTopB->setStyleSheet("background:rgba(0, 128, 255,0);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+       this->editorTop[i] = editorTopB;
+       connect(editorTop[i], SIGNAL(clicked()), this->signalMapper, SLOT(map()));
+   }
+   connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(onTopClicked(QString)));
+   this->editorTop[0]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+   this->editorTop[0]->setText("欢迎页");
+
+
+   for (int i = 0;i<9;i++){
+       this->ui->edit_title->addWidget(editorTop[i]);
+   }
+
 }
 
 void MainWindow::on_actionNew_Project_triggered()
@@ -114,13 +127,37 @@ void MainWindow::on_textEdit_textChanged()
 }
 void MainWindow::EditAddFileTitle(QString filename){
         if(!this->editorManager.isFileOpened(filename,this->projectPath)){
-
                     QPushButton* push = new QPushButton(filename);
                     push->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
-                    this->ui->edit_title->addWidget(push);
-
+                    this->ui->edit_title->addWidget(push,0);
         }
 }
+
+
+void MainWindow::onTopClicked(QString index){
+    renderTitle(index);
+    this->ui->textEdit->setText(fileManager.getBufferedFile(index,this->projectPath));
+}
+
+void MainWindow::renderTitle(QString file){
+    std::vector<QString> opened = this->editorManager.getOpenedFile();
+
+    for(int i = 0;i<opened.size();i++){
+        this->editorTop[i]->setText(opened.at(i));
+         if(opened.at(i)==file){
+            this->editorTop[i]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+        }else{
+             this->editorTop[i]->setStyleSheet("background:rgb(45, 45, 48);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+
+        }
+        QString ff = editorTop[i]->text();
+        this->signalMapper->setMapping(editorTop[i], ff);
+
+     }
+
+}
+
+
 void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 {
     QString str;
@@ -129,16 +166,15 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 
     if(str!="Sources"&&str!="Headers"){
 
-         this->ui->textEdit->setFontPointSize(20);
+        this->ui->textEdit->setFontPointSize(20);
 
-         this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
+        this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
 
         this->ui->markList->setModel(this->pp->getMark(str));
 
-         this->EditAddFileTitle(str);
+        //this->EditAddFileTitle(str);
         this->editorManager.openFile(str,this->projectPath);
-
-
+        renderTitle(str);
 
 
         //ui->editor_file_name->setText(str);

@@ -10,6 +10,8 @@
 #include "filemanager.h"
 #include "editor.h"
 #include "project.h"
+#include <QPushButton>
+#include <QSignalMapper>
 namespace Ui {
 class MainWindow;
 }
@@ -18,19 +20,12 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public slots:
-
-
 public:
     explicit MainWindow(QWidget *parent = 0);
 
     ~MainWindow();
 
 private slots:
-
-
-
-
-
 
      void on_actionNew_Project_triggered();
 
@@ -41,6 +36,9 @@ private slots:
      void on_textEdit_textChanged();
 
      void on_treeViewProject_clicked(const QModelIndex &index);
+
+     void onTopClicked(QString index);
+
 
 private:
     Ui::MainWindow *ui;
@@ -55,6 +53,9 @@ private:
 
     void  setupEditor();
 
+    void renderTitle(QString file);
+
+    QPushButton* editorTop[9];
 
     QJsonObject projectOBJ;
     ProjectEntity project;
@@ -65,8 +66,13 @@ private:
     EditorManager editorManager;
     QString projectPath;
 
+    QSignalMapper *signalMapper = new QSignalMapper(this);
+
+
+
     void EditAddFileTitle(QString filename);
 
+    int topIndex = 0;
 
 };
 
