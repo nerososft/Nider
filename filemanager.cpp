@@ -7,8 +7,8 @@ FileManager::FileManager()
 
 }
 
-
 QString  FileManager::getBufferedFile(QString fileName,QString filePath){
+    //this->filePath = filePath;
 
    //在map中查找file
    std::map<QString, QString>::iterator mit = this->fileBuffer.find(fileName);

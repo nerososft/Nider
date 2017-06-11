@@ -10,7 +10,6 @@ public:
 
     std::map<QString,QString> fileBuffer;
 
-
     QString getBufferedFile(QString fileName,QString filePath);
 
 

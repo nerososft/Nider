@@ -8,6 +8,8 @@
 #include <QJsonObject>
 #include "projectentity.h"
 #include "filemanager.h"
+#include "editor.h"
+#include "project.h"
 namespace Ui {
 class MainWindow;
 }
@@ -57,8 +59,13 @@ private:
     QJsonObject projectOBJ;
     ProjectEntity project;
 
+    Project* pp;
+
     FileManager fileManager;
+    EditorManager editorManager;
     QString projectPath;
+
+    void EditAddFileTitle(QString filename);
 
 
 };

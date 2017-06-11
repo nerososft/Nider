@@ -228,6 +228,29 @@ QStandardItemModel* Project::getProjectTree(){
 }
 
 QStandardItemModel* Project::getMark(QString src){
+    QStandardItemModel*  mark = new QStandardItemModel();
 
+    foreach(Source item,this->project.source){
+        if(item.src==src){
+            foreach(Mark mark_item,item.mark){
+                QStandardItem*  itemProject = new QStandardItem(QIcon(":/icon/mark_"+mark_item.level+".png"),mark_item.content);
+                mark->appendRow(itemProject);
+            }
+        }else{
+            continue;
+        }
+    }
 
+    foreach(Source item,this->project.header){
+        if(item.src==src){
+            foreach(Mark mark_item,item.mark){
+                QStandardItem*  itemProject = new QStandardItem(QIcon(":/icon/mark_"+mark_item.level+".png"),mark_item.content);
+                mark->appendRow(itemProject);
+            }
+        }else{
+            continue;
+        }
+    }
+
+    return mark;
 }

@@ -14,6 +14,7 @@
 #include <QJsonObject>
 #include "jsonhelper.h"
 #include "project.h"
+#include <QSpacerItem>
 
  QLabel *q;
 void MainWindow::initUi(){
@@ -88,12 +89,12 @@ void MainWindow::on_actionOpen_Project_triggered()
                 QString buffer =  fileHelper.loadFileToString(path);
                 this->projectOBJ = jsonHelper.getJsonObjectFromString(buffer);
 
-                Project pp(this->projectOBJ);
-                this->ui->projectName->setText(pp.getProjectName());
-                this->ui->listView_undo->setModel(pp.getTaskUndo());
-                this->ui->listView_doing->setModel(pp.getTaskDoing());
-                this->ui->listView_done->setModel(pp.getTaskDone());
-                this->ui->treeViewProject->setModel(pp.getProjectTree());
+                this->pp =  new Project(this->projectOBJ);
+                this->ui->projectName->setText(this->pp->getProjectName());
+                this->ui->listView_undo->setModel(this->pp->getTaskUndo());
+                this->ui->listView_doing->setModel(this->pp->getTaskDoing());
+                this->ui->listView_done->setModel(this->pp->getTaskDone());
+                this->ui->treeViewProject->setModel(this->pp->getProjectTree());
 
 
 
@@ -111,7 +112,15 @@ void MainWindow::on_textEdit_textChanged()
         int RowNum = cursor.blockNumber();
         q->setText("Col: "+QString::number(ColNum,10)+" Row: "+QString::number(RowNum,10));
 }
+void MainWindow::EditAddFileTitle(QString filename){
+        if(!this->editorManager.isFileOpened(filename,this->projectPath)){
 
+                    QPushButton* push = new QPushButton(filename);
+                    push->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+                    this->ui->edit_title->addWidget(push);
+
+        }
+}
 void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 {
     QString str;
@@ -120,10 +129,19 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 
     if(str!="Sources"&&str!="Headers"){
 
-        this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
+         this->ui->textEdit->setFontPointSize(20);
 
-        this->ui->textEdit->setFontPointSize(20);
-        ui->editor_file_name->setText(str);
+         this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
+
+        this->ui->markList->setModel(this->pp->getMark(str));
+
+         this->EditAddFileTitle(str);
+        this->editorManager.openFile(str,this->projectPath);
+
+
+
+
+        //ui->editor_file_name->setText(str);
 
     }
 

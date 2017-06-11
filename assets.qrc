@@ -12,15 +12,15 @@
         <file>icon/run.png</file>
         <file>icon/stop.png</file>
         <file>icon/refresh.png</file>
-        <file>icon/mark_black.png</file>
-        <file>icon/mark_blue.png</file>
-        <file>icon/mark_default.png</file>
-        <file>icon/mark_yellow.png</file>
         <file>icon/264251323.png</file>
         <file>model/tree/model.json</file>
         <file>model/model/1/main.cpp</file>
         <file>icon/level_1.png</file>
         <file>icon/level_2.png</file>
         <file>icon/level_3.png</file>
+        <file>icon/mark_1.png</file>
+        <file>icon/mark_2.png</file>
+        <file>icon/mark_3.png</file>
+        <file>icon/mark_4.png</file>
     </qresource>
 </RCC>

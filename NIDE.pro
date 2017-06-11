@@ -34,7 +34,8 @@ SOURCES += \
     errorhelper.cpp \
     filehelper.cpp \
     projectentity.cpp \
-    filemanager.cpp
+    filemanager.cpp \
+    editor.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -47,7 +48,8 @@ HEADERS += \
     errorhelper.h \
     filehelper.h \
     projectentity.h \
-    filemanager.h
+    filemanager.h \
+    editor.h
 
 FORMS += \
         mainwindow.ui \

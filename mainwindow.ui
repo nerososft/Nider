@@ -239,7 +239,7 @@ background:rgb(35, 35, 38);
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_15">
               <item>
-               <widget class="QListView" name="listView">
+               <widget class="QListView" name="markList">
                 <property name="focusPolicy">
                  <enum>Qt::NoFocus</enum>
                 </property>
@@ -365,39 +365,10 @@ background:rgb(35, 35, 38);
                <number>0</number>
               </property>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <layout class="QHBoxLayout" name="edit_title">
                 <property name="spacing">
                  <number>0</number>
                 </property>
-                <item>
-                 <widget class="QPushButton" name="editor_file_name">
-                  <property name="styleSheet">
-                   <string notr="true">background:rgb(0, 128, 255);
-color:rgb(255, 255, 255);
-border:none;
-margin:0;
-padding:4px;
-padding-left:20px;
-padding-right:20px;</string>
-                  </property>
-                  <property name="text">
-                   <string>欢迎使用</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                </layout>
               </item>
               <item>
@@ -405,7 +376,8 @@ padding-right:20px;</string>
                 <property name="styleSheet">
                  <string notr="true">background:rgb(0, 128, 255);
 margin:0;
-padding:0;</string>
+padding:0;
+margin-top:-10px;</string>
                 </property>
                 <property name="frameShadow">
                  <enum>QFrame::Sunken</enum>
@@ -518,7 +490,7 @@ color:rgb(255, 0, 0);</string>
                      <bool>true</bool>
                     </property>
                     <property name="plainText">
-                     <string>Error: known  error!</string>
+                     <string/>
                     </property>
                    </widget>
                   </item>

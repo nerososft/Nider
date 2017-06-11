@@ -27,7 +27,7 @@ class Mark{
 };
 class Source{
     public:
-        QString src;
+       QString src;
        std::vector<Mark> mark;
 };
 
