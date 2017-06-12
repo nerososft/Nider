@@ -478,7 +478,7 @@ background:rgb(35, 35, 38);
 }</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="tab_5">
                  <attribute name="title">
@@ -508,6 +508,15 @@ color:rgb(255, 0, 0);</string>
                  <attribute name="title">
                   <string>输出</string>
                  </attribute>
+                 <layout class="QHBoxLayout" name="horizontalLayout_4">
+                  <item>
+                   <widget class="QTextBrowser" name="textBrowser_output">
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                 <widget class="QWidget" name="tab_7">
                  <attribute name="title">
