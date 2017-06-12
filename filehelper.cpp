@@ -129,3 +129,16 @@ QString FileHelper::loadCodeFileToString(QString filepath){
     file.close();
     return buffer;
 }
+
+
+ bool FileHelper::saveFile(QString filePath,QString content){
+     QFile File(filePath);
+     if (!File.open(QIODevice::WriteOnly|QIODevice::Text)) {
+         return false;
+     }
+     QTextStream out(&File);
+     out<<content<<endl;
+     out.flush();
+     File.close();
+     return true;
+ }

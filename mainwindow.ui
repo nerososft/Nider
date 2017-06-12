@@ -365,7 +365,7 @@ background:rgb(35, 35, 38);
                <number>0</number>
               </property>
               <item>
-               <layout class="QHBoxLayout" name="edit_title" stretch="">
+               <layout class="QHBoxLayout" name="edit_title">
                 <property name="spacing">
                  <number>1</number>
                 </property>

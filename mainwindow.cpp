@@ -135,6 +135,23 @@ void MainWindow::EditAddFileTitle(QString filename){
 
 
 void MainWindow::onTopClicked(QString index){
+
+
+    if(this->fileIndex!=""){
+        FileHelper filehelper;
+        if(!filehelper.saveFile(this->projectPath+this->fileIndex,this->ui->textEdit->toPlainText())){
+            ErrorHelper err;
+            err.Error("文件"+this->projectPath+this->fileIndex+"保存失败");
+        }else{
+            if(!this->fileManager.updateFileBuffer(this->fileIndex,this->ui->textEdit->toPlainText())){
+                ErrorHelper err;
+                err.Error("buffer"+this->projectPath+this->fileIndex+"更新失败");
+            }
+        }
+         qDebug()<<"文件"+this->projectPath+this->fileIndex+"保存成功";
+    }
+    this->fileIndex = index;
+
     renderTitle(index);
     this->ui->textEdit->setText(fileManager.getBufferedFile(index,this->projectPath));
 }
@@ -166,15 +183,30 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 
     if(str!="Sources"&&str!="Headers"){
 
-        this->ui->textEdit->setFontPointSize(20);
-
-        this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
-
-        this->ui->markList->setModel(this->pp->getMark(str));
 
         //this->EditAddFileTitle(str);
         this->editorManager.openFile(str,this->projectPath);
+        if(this->fileIndex!=""){
+            FileHelper filehelper;
+            if(!filehelper.saveFile(this->projectPath+this->fileIndex,this->ui->textEdit->toPlainText())){
+                ErrorHelper err;
+                err.Error("文件"+this->projectPath+this->fileIndex+"保存失败");
+            }else{
+                if(!this->fileManager.updateFileBuffer(this->fileIndex,this->ui->textEdit->toPlainText())){
+                    ErrorHelper err;
+                    err.Error("buffer"+this->projectPath+this->fileIndex+"更新失败");
+                }
+            }
+                qDebug()<<"文件"+this->projectPath+this->fileIndex+"保存成功";
+        }
+        this->fileIndex = str;
+
+
+        this->ui->textEdit->setFontPointSize(20);
+        this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
+        this->ui->markList->setModel(this->pp->getMark(str));
         renderTitle(str);
+
 
 
         //ui->editor_file_name->setText(str);

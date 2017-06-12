@@ -12,6 +12,7 @@ public:
 
     QString getBufferedFile(QString fileName,QString filePath);
 
+    bool updateFileBuffer(QString fileName,QString content);
 
 };
 

@@ -23,6 +23,8 @@ public:
 
     QString loadCodeFileToString(QString filePath);
 
+    bool saveFile(QString filePath,QString content);
+
 };
 
 #endif // FILEHELPER_H

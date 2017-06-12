@@ -72,6 +72,8 @@ private:
 
     void EditAddFileTitle(QString filename);
 
+    QString fileIndex = "";
+
     int topIndex = 0;
 
 };

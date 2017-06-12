@@ -25,3 +25,15 @@ QString  FileManager::getBufferedFile(QString fileName,QString filePath){
    qDebug()<<"使用缓存文件"+fileName;
    return mit->second;
 }
+
+ bool FileManager::updateFileBuffer(QString fileName,QString content){
+     std::map<QString, QString>::iterator it;
+      it = this->fileBuffer.find(fileName);
+      if(it == this->fileBuffer.end())
+          return false;
+          //this->fileBuffer.insert(std::make_pair(fileName, content));
+      else {
+            it->second = content;
+            return true;
+      }
+ }
