@@ -16,13 +16,21 @@
 #include "project.h"
 #include <QSpacerItem>
 #include <QSignalMapper>
+#include <QtCore>
+#include <QtGui>
 
 QLabel *q;
+QPushButton *tor;
 void MainWindow::initUi(){
 
     ui->setupUi(this);
     q = new QLabel("Col:  Row: ");
     this->statusBar()->addWidget(q);
+
+    tor = new QPushButton("");
+    tor->setIcon(QIcon(":/icon/tor.png"));
+    tor->setStyleSheet("color:white;border:none;background:rgba(51, 51, 51,0);");
+    this->statusBar()->addWidget(tor);
 
     QFile qssfile(":/styles/base.qss");
     qssfile.open(QFile::ReadOnly);
@@ -32,6 +40,23 @@ void MainWindow::initUi(){
 
 
     this->setupEditor();
+
+
+    this->console = new QTermWidget();
+   QFont font = QApplication::font();
+   font.setFamily("Terminus");
+    font.setPointSize(12);
+    this->console->setTerminalFont(font);
+    console->setColorScheme(DEFAULT);
+    this->console->setScrollBarPosition(QTermWidget::ScrollBarRight);
+    this->console->setStyleSheet("background:rgba(0,0,0,0)");
+
+
+    this->ui->term->addWidget(console);
+    //mainWindow->setCentralWidget(console);
+   // mainWindow->resize(802, 610);
+
+    //QObject::connect(console, SIGNAL(finished()), this->ui->MainWindow, SLOT(close()));
 
 }
 
@@ -118,12 +143,26 @@ void MainWindow::on_actionOpen_Project_triggered()
 
 }
 
+int num = 0;
 void MainWindow::on_textEdit_textChanged()
 {
     QTextCursor cursor = ui->textEdit->textCursor();
     int ColNum = cursor.columnNumber();
     int RowNum = cursor.blockNumber();
-    q->setText("Col: "+QString::number(ColNum,10)+" Row: "+QString::number(RowNum,10));
+    QString bottomS = "Col: "+QString::number(ColNum,10)+" Row: "+QString::number(RowNum,10);
+    for(int i = 0;i<ColNum;i++){
+        bottomS+="   ";
+    }
+
+    if(num == 1){
+        tor->setIcon(QIcon(":/icon/tor_run.png"));
+        num = 0;
+    }else{
+        tor->setIcon(QIcon(":/icon/tor.png"));
+        num++;
+    }
+
+    q->setText(bottomS);
 }
 void MainWindow::EditAddFileTitle(QString filename){
     if(!this->editorManager.isFileOpened(filename,this->projectPath)){
@@ -157,14 +196,16 @@ void MainWindow::onTopClicked(QString index){
 
 void MainWindow::renderTitle(QString file){
     std::vector<QString> opened = this->editorManager.getOpenedFile();
+    int finalcount = (opened.size()>=9 ? 9: opened.size());
 
-    for(int i = 0;i<opened.size();i++){
+    for(int i = 0; i<finalcount;i++){
         this->editorTop[i]->setText(opened.at(i));
         if(opened.at(i)==file){
+
             this->editorTop[i]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
         }else{
-            this->editorTop[i]->setStyleSheet("background:rgb(45, 45, 48);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
 
+            this->editorTop[i]->setStyleSheet("background:rgb(45, 45, 48);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
         }
         QString ff = editorTop[i]->text();
         this->signalMapper->setMapping(editorTop[i], ff);
@@ -185,6 +226,7 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 
         //this->EditAddFileTitle(str);
         this->editorManager.openFile(str,this->projectPath);
+
         if(this->fileIndex!=""){
             FileHelper filehelper;
             if(!filehelper.saveFile(this->projectPath+this->fileIndex,this->ui->textEdit->toPlainText())){
@@ -203,10 +245,6 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
         this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
         this->ui->markList->setModel(this->pp->getMark(str));
         renderTitle(str);
-
-
-
-        //ui->editor_file_name->setText(str);
 
     }
 

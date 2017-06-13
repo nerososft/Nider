@@ -12,6 +12,9 @@
 #include "project.h"
 #include <QPushButton>
 #include <QSignalMapper>
+
+#include "lib/qtermwidget.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -75,6 +78,8 @@ private:
     QString fileIndex = "";
 
     int topIndex = 0;
+
+    QTermWidget *console;
 
 };
 

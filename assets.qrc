@@ -21,5 +21,7 @@
         <file>icon/mark_2.png</file>
         <file>icon/mark_3.png</file>
         <file>icon/mark_4.png</file>
+        <file>icon/tor.png</file>
+        <file>icon/tor_run.png</file>
     </qresource>
 </RCC>

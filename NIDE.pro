@@ -35,7 +35,27 @@ SOURCES += \
     filehelper.cpp \
     projectentity.cpp \
     filemanager.cpp \
-    editor.cpp
+    editor.cpp \
+    terminal.cpp \
+    networking.cpp \
+    lib/BlockArray.cpp \
+    lib/Emulation.cpp \
+    lib/Filter.cpp \
+    lib/History.cpp \
+    lib/k3process.cpp \
+    lib/k3processcontroller.cpp \
+    lib/KeyboardTranslator.cpp \
+    lib/konsole_wcwidth.cpp \
+    lib/kpty.cpp \
+    lib/Pty.cpp \
+    lib/qtermwidget.cpp \
+    lib/Screen.cpp \
+    lib/ScreenWindow.cpp \
+    lib/Session.cpp \
+    lib/ShellCommand.cpp \
+    lib/TerminalCharacterDecoder.cpp \
+    lib/TerminalDisplay.cpp \
+    lib/Vt102Emulation.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +69,34 @@ HEADERS += \
     filehelper.h \
     projectentity.h \
     filemanager.h \
-    editor.h
+    editor.h \
+    terminal.h \
+    networking.h \
+    lib/BlockArray.h \
+    lib/Character.h \
+    lib/CharacterColor.h \
+    lib/ColorTables.h \
+    lib/DefaultTranslatorText.h \
+    lib/Emulation.h \
+    lib/ExtendedDefaultTranslator.h \
+    lib/Filter.h \
+    lib/History.h \
+    lib/k3process.h \
+    lib/k3processcontroller.h \
+    lib/KeyboardTranslator.h \
+    lib/konsole_wcwidth.h \
+    lib/kpty.h \
+    lib/kpty_p.h \
+    lib/LineFont.h \
+    lib/Pty.h \
+    lib/qtermwidget.h \
+    lib/Screen.h \
+    lib/ScreenWindow.h \
+    lib/Session.h \
+    lib/ShellCommand.h \
+    lib/TerminalCharacterDecoder.h \
+    lib/TerminalDisplay.h \
+    lib/Vt102Emulation.h
 
 FORMS += \
         mainwindow.ui \
@@ -61,4 +108,19 @@ RESOURCES += \
 
 DISTFILES += \
     ../nide_project/project1/project1.nproj \
-    ../nide_project/newProject/newProject.nproj
+    ../nide_project/newProject/newProject.nproj \
+    lib/LineFont.src \
+    lib/CVS/Entries \
+    lib/CVS/Repository \
+    lib/CVS/Root \
+    lib/kb-layouts/CVS/Entries \
+    lib/kb-layouts/CVS/Repository \
+    lib/kb-layouts/CVS/Root \
+    lib/kb-layouts/default.keytab \
+    lib/kb-layouts/linux.keytab \
+    lib/kb-layouts/vt420pc.keytab \
+    lib/default.keytab \
+    lib/README
+
+SUBDIRS += \
+    lib/lib.pro

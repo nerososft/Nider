@@ -228,10 +228,16 @@ background:rgb(51, 51, 51);
 QTabBar::tab:hover:!selected
 {
 background:rgb(35, 35, 38);
-}</string>
+}
+QTabWidget::pane { /* The tab widget frame */  
+   padding:0;
+}  </string>
             </property>
             <property name="currentIndex">
              <number>0</number>
+            </property>
+            <property name="elideMode">
+             <enum>Qt::ElideLeft</enum>
             </property>
             <widget class="QWidget" name="tab">
              <attribute name="title">
@@ -283,10 +289,16 @@ background:rgb(51, 51, 51);
 QTabBar::tab:hover:!selected
 {
 background:rgb(35, 35, 38);
-}</string>
+}
+QTabWidget::pane { /* The tab widget frame */  
+   padding:0;
+}  </string>
             </property>
             <property name="currentIndex">
              <number>2</number>
+            </property>
+            <property name="elideMode">
+             <enum>Qt::ElideLeft</enum>
             </property>
             <widget class="QWidget" name="tab_3">
              <attribute name="title">
@@ -475,10 +487,32 @@ background:rgb(51, 51, 51);
 QTabBar::tab:hover:!selected
 {
 background:rgb(35, 35, 38);
-}</string>
+}
+
+QTabWidget::pane { /* The tab widget frame */  
+   padding:0;
+}  </string>
+                </property>
+                <property name="tabShape">
+                 <enum>QTabWidget::Triangular</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
+                </property>
+                <property name="elideMode">
+                 <enum>Qt::ElideLeft</enum>
+                </property>
+                <property name="documentMode">
+                 <bool>false</bool>
+                </property>
+                <property name="tabsClosable">
+                 <bool>false</bool>
+                </property>
+                <property name="movable">
+                 <bool>false</bool>
+                </property>
+                <property name="tabBarAutoHide">
+                 <bool>true</bool>
                 </property>
                 <widget class="QWidget" name="tab_5">
                  <attribute name="title">
@@ -489,7 +523,12 @@ background:rgb(35, 35, 38);
                    <widget class="QPlainTextEdit" name="plainTextEdit_2">
                     <property name="styleSheet">
                      <string notr="true">border:none;
-color:rgb(255, 0, 0);</string>
+color:rgb(255, 0, 0);
+margin:0;
+padding:0;</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
                     </property>
                     <property name="documentTitle">
                      <string/>
@@ -508,8 +547,8 @@ color:rgb(255, 0, 0);</string>
                  <attribute name="title">
                   <string>输出</string>
                  </attribute>
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
+                 <layout class="QGridLayout" name="gridLayout">
+                  <item row="0" column="0">
                    <widget class="QTextBrowser" name="textBrowser_output">
                     <property name="frameShape">
                      <enum>QFrame::NoFrame</enum>
@@ -522,6 +561,15 @@ color:rgb(255, 0, 0);</string>
                  <attribute name="title">
                   <string>终端</string>
                  </attribute>
+                 <layout class="QHBoxLayout" name="horizontalLayout_6">
+                  <item>
+                   <layout class="QHBoxLayout" name="term">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                   </layout>
+                  </item>
+                 </layout>
                 </widget>
                </widget>
               </item>

@@ -6,21 +6,7 @@ EditorManager::EditorManager()
 
 }
 
-//编辑器打开新文件
-void EditorManager::openFile(QString filename,QString filePath){
 
-    std::map<QString,QString>::iterator fileIterator=this->openedFIle.find(filename);
-    std::pair<QString, QString> newPair(filename,filePath );
-    if (fileIterator == this->openedFIle.end()){
-
-
-        this->openedFIle.insert(newPair);
-         qDebug()<< "编辑器打开新文件:"+filePath+filename;
-    }
-    qDebug()<<"编辑器已经打开了该文件"+filePath+filename;
-
-    this->fileIndex  = newPair;
-}
 
 //编辑器关闭文件
 void EditorManager::closeFile(QString filename,QString filePath){
@@ -42,12 +28,26 @@ void EditorManager::switchFile(QString filename,QString filePath){
 
 }
 
+
+//编辑器打开新文件
+void EditorManager::openFile(QString filename,QString filePath){
+
+    std::map<QString,QString>::iterator fileIterator=this->openedFIle.find(filename);
+    std::pair<QString, QString> newPair(filename,filePath );
+    if (fileIterator == this->openedFIle.end()){
+        this->openedFIle.insert(this->openedFIle.begin(),newPair);
+         qDebug()<< "编辑器打开新文件:"+filePath+filename;
+    }
+    qDebug()<<"编辑器已经打开了该文件"+filePath+filename;
+
+    this->fileIndex  = newPair;
+}
  std::vector<QString> EditorManager::getOpenedFile(){
      std::map<QString,QString>::iterator fileIterator;
 
     std::vector<QString> opened;
     for(fileIterator = this->openedFIle.begin();fileIterator!=this->openedFIle.end();fileIterator++){
-        opened.push_back(fileIterator->first);
+        opened.insert(opened.begin(),fileIterator->first);
     }
     return opened;
  }
