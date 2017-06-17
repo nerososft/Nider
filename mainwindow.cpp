@@ -18,6 +18,7 @@
 #include <QSignalMapper>
 #include <QtCore>
 #include <QtGui>
+#include "generalproject.h"
 
 QLabel *q;
 QPushButton *tor;
@@ -36,6 +37,9 @@ void MainWindow::initUi(){
     qssfile.open(QFile::ReadOnly);
     QString qss;
     qss = qssfile.readAll();
+
+
+    //setWindowIcon(QIcon("logo.ico"));
     // this->setStyleSheet(qss);
 
 
@@ -50,13 +54,7 @@ void MainWindow::initUi(){
     console->setColorScheme(DEFAULT);
     this->console->setScrollBarPosition(QTermWidget::ScrollBarRight);
     this->console->setStyleSheet("background:rgba(0,0,0,0)");
-
-
     this->ui->term->addWidget(console);
-    //mainWindow->setCentralWidget(console);
-   // mainWindow->resize(802, 610);
-
-    //QObject::connect(console, SIGNAL(finished()), this->ui->MainWindow, SLOT(close()));
 
 }
 
@@ -87,12 +85,12 @@ void MainWindow::setupEditor()
 
     for(int i = 0;i<9;i++){
         QPushButton* editorTopB = new QPushButton("");
-        editorTopB->setStyleSheet("background:rgba(0, 128, 255,0);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+        editorTopB->setStyleSheet("background:rgba(0, 128, 255,0);color:rgb(255, 255, 255);width:100px;border:none;margin:0;padding:4px;margin-left:1px;");
         this->editorTop[i] = editorTopB;
         connect(editorTop[i], SIGNAL(clicked()), this->signalMapper, SLOT(map()));
     }
     connect(signalMapper, SIGNAL(mapped(QString)), this, SLOT(onTopClicked(QString)));
-    this->editorTop[0]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+    this->editorTop[0]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);width:100x;border:none;margin:0;padding:4px;margin-left:1px;");
     this->editorTop[0]->setText("欢迎页");
 
 
@@ -167,7 +165,7 @@ void MainWindow::on_textEdit_textChanged()
 void MainWindow::EditAddFileTitle(QString filename){
     if(!this->editorManager.isFileOpened(filename,this->projectPath)){
         QPushButton* push = new QPushButton(filename);
-        push->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+        push->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;width:100px;margin:0;padding:4px;margin-left:1px;");
         this->ui->edit_title->addWidget(push,0);
     }
 }
@@ -202,10 +200,10 @@ void MainWindow::renderTitle(QString file){
         this->editorTop[i]->setText(opened.at(i));
         if(opened.at(i)==file){
 
-            this->editorTop[i]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+            this->editorTop[i]->setStyleSheet("background:rgb(0, 128, 255);color:rgb(255, 255, 255);width:100px;border:none;margin:0;padding:4px;margin-left:1px;");
         }else{
 
-            this->editorTop[i]->setStyleSheet("background:rgb(45, 45, 48);color:rgb(255, 255, 255);border:none;margin:0;padding:4px;padding-left:20px;padding-right:20px;margin-left:1px;");
+            this->editorTop[i]->setStyleSheet("background:rgb(45, 45, 48);color:rgb(255, 255, 255);width:100px;border:none;margin:0;padding:4px;margin-left:1px;");
         }
         QString ff = editorTop[i]->text();
         this->signalMapper->setMapping(editorTop[i], ff);
@@ -242,8 +240,11 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 
 
         this->ui->textEdit->setFontPointSize(20);
+
         this->ui->textEdit->setText(fileManager.getBufferedFile(str,this->projectPath));
-        this->ui->markList->setModel(this->pp->getMark(str));
+        if(this->projectPath!=""){
+            this->ui->markList->setModel(this->pp->getMark(str));
+        }
         renderTitle(str);
 
     }
@@ -252,4 +253,17 @@ void MainWindow::on_treeViewProject_clicked(const QModelIndex &index)
 
 
 
+}
+
+void MainWindow::on_actionOpenFolder_triggered()
+{
+    QFileDialog projectDialog;
+    QString path = projectDialog.getExistingDirectory(this,"打开目录","~/");
+    if(path.length() != 0) {
+        GeneralProject gen;
+        this->ui->treeViewProject->setModel(gen.getCurrentForder(path));
+
+
+
+    }
 }

@@ -23,5 +23,12 @@
         <file>icon/mark_4.png</file>
         <file>icon/tor.png</file>
         <file>icon/tor_run.png</file>
+        <file>icon/new_task.png</file>
+        <file>icon/logo.png</file>
+        <file>icon/logo.ico</file>
+        <file>icon/logo.icns</file>
+        <file>icon/switch.png</file>
+        <file>icon/c++.png</file>
+        <file>icon/icons.png</file>
     </qresource>
 </RCC>

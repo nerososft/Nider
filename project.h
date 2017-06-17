@@ -3,6 +3,7 @@
 #include "projectentity.h"
 #include <QJsonObject>
 #include <QStandardItemModel>
+#include "filetypeicon.h"
 
 class Project
 {
@@ -33,6 +34,7 @@ public:
 
     QStandardItemModel* getMark(QString src);
 
+    FileTypeIcon icon;
 
 };
 

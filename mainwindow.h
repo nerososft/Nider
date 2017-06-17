@@ -43,6 +43,8 @@ private slots:
      void onTopClicked(QString index);
 
 
+     void on_actionOpenFolder_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -67,7 +69,7 @@ private:
 
     FileManager fileManager;
     EditorManager editorManager;
-    QString projectPath;
+    QString projectPath = "";
 
     QSignalMapper *signalMapper = new QSignalMapper(this);
 

@@ -33,7 +33,7 @@ void EditorManager::switchFile(QString filename,QString filePath){
 void EditorManager::openFile(QString filename,QString filePath){
 
     std::map<QString,QString>::iterator fileIterator=this->openedFIle.find(filename);
-    std::pair<QString, QString> newPair(filename,filePath );
+    std::pair<QString, QString> newPair(filename,filePath);
     if (fileIterator == this->openedFIle.end()){
         this->openedFIle.insert(this->openedFIle.begin(),newPair);
          qDebug()<< "编辑器打开新文件:"+filePath+filename;

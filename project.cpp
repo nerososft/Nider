@@ -7,6 +7,7 @@ Project::Project(QJsonObject projectOBJ)
 {
     this->projectOBJ = projectOBJ;
     projectObjectToProjectEntity();
+    this->icon.InitFileIcon(":/icon/icons.png");
 }
 
 void Project::projectObjectToProjectEntity(){
@@ -202,7 +203,7 @@ QStandardItem* Project::getSource(){
     QStandardItem*  source = new QStandardItem(QIcon(":/icon/open_file.png"),"Sources");
 
     foreach(Source item,this->project.source){
-        QStandardItem*  itemProject = new QStandardItem(QIcon(""),item.src);
+        QStandardItem*  itemProject = new QStandardItem(this->icon.getIcon("cpp"),item.src);
         source->appendRow(itemProject);
     }
     return source;
@@ -212,7 +213,7 @@ QStandardItem* Project::getHeaders(){
     QStandardItem*  header = new QStandardItem(QIcon(":/icon/open_file.png"),"Headers");
 
     foreach(Source item,this->project.header){
-        QStandardItem*  itemProject = new QStandardItem(QIcon(""),item.src);
+        QStandardItem*  itemProject = new QStandardItem(this->icon.getIcon("cpp"),item.src);
         header->appendRow(itemProject);
     }
     return header;
