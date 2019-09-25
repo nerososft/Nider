@@ -1,3 +1,3 @@
 # Nider
 # Nider
-![p](https://duaw26jehqd4r.cloudfront.net/items/3B1z3E1j2W0p3B1f3h0W/Image%202017-06-11%20at%203.02.23%20%E4%B8%8A%E5%8D%88.public.png?v=23dc505a)
+![p](https://raw.githubusercontent.com/nerososft/Nider/master/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-09-25%20%E4%B8%8B%E5%8D%889.34.43.png)
